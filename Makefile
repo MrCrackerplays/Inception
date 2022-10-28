@@ -1,1 +1,1 @@
-NAME := inception
+NAME = inception
