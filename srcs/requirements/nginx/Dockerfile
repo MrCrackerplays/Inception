@@ -1,8 +1,7 @@
 FROM alpine:3.15
 
-RUN apt-get update && \
-	apt-get upgrade -y && \
-	apt-get install -y \
+RUN apk update && \
+	apk add \
 	nginx \
 	openssl
 
@@ -16,4 +15,4 @@ RUN mkdir -p /etc/nginx/ssl/ \
 	-keyout /etc/nginx/ssl/privatekey.pem \
 	-subj "/C=NL/ST=Noord-Holland/L=Amsterdam/O=Codam/CN=localhost"
 
-RUN pwd && ls -la
+CMD pwd && ls -la
