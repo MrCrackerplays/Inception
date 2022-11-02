@@ -1,0 +1,57 @@
+services:
+  nginx:
+    #this is very explicit for understanding, it could also just be build: srcs/requirements/nginx
+    build:
+      context: srcs/requirements/nginx
+      dockerfile: Dockerfile
+    #restarts when the container crashes
+    restart: unless-stopped
+    networks:
+      - inception-network
+    # see https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes
+    volumes:
+      #I don't quite understand this just yet, will return to it
+      - ${HOME}/data:/var/www/
+
+#the network shown in the subject diagram
+networks:
+  inception-network:
+    name: inception-network
+
+#   frontend:
+#     image: awesome/webapp
+#     ports:
+#       - "443:8043"
+#     networks:
+#       - front-tier
+#       - back-tier
+#     configs:
+#       - httpd-config
+#     secrets:
+#       - server-certificate
+
+#   backend:
+#     image: awesome/database
+#     volumes:
+#       - db-data:/etc/data
+#     networks:
+#       - back-tier
+
+# volumes:
+#   db-data:
+#     driver: flocker
+#     driver_opts:
+#       size: "10GiB"
+
+# configs:
+#   httpd-config:
+#     external: true
+
+# secrets:
+#   server-certificate:
+#     external: true
+
+# networks:
+#   # The presence of these objects is sufficient to define them
+#   front-tier: {}
+#   back-tier: {}

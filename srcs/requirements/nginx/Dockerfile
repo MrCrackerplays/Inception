@@ -15,4 +15,6 @@ RUN mkdir -p /etc/nginx/ssl/ \
 	-keyout /etc/nginx/ssl/privatekey.pem \
 	-subj "/C=NL/ST=Noord-Holland/L=Amsterdam/O=Codam/CN=localhost"
 
-CMD pwd && ls -la
+EXPOSE 443
+
+CMD ["nginx", "-g", "daemon off;"]
