@@ -1,8 +1,8 @@
 services:
   nginx:
-    #this is very explicit for understanding, it could also just be build: srcs/requirements/nginx
+    #this is very explicit for understanding, it could also just be build: requirements/nginx
     build:
-      context: srcs/requirements/nginx
+      context: requirements/nginx
       dockerfile: Dockerfile
     #restarts when the container crashes
     restart: unless-stopped
