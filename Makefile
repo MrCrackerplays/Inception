@@ -2,7 +2,7 @@
 all: down up
 
 up: setup
-	sudo docker compose -f srcs/docker-compose.yml up -d
+	sudo docker compose -f srcs/docker-compose.yml up --build -d
 
 down: setup
 	sudo docker compose -f srcs/docker-compose.yml down
