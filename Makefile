@@ -16,10 +16,9 @@ setup: docker-setup
 
 clean: down
 	rm -f setup docker-setup
-	sudo rm -f /etc/apt/keyrings/docker.gpg
 
 push:
 	git push origin master
 	git push github master:main
 
-.PHONY: push clean
+.PHONY: all up down push clean
