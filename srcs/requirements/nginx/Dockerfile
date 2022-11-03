@@ -13,7 +13,8 @@ RUN mkdir -p /etc/nginx/ssl/ \
 	-keyout /etc/nginx/ssl/privatekey.pem \
 	-subj "/C=NL/ST=Noord-Holland/L=Amsterdam/O=Codam/CN=localhost"
 
-RUN rm -rf /etc/nginx/sites-enabled/* && \
+RUN mkdir /etc/nginx/sites-enabled && \
+	mkdir /etc/nginx/sites-available && \
 	mv nginx.conf /etc/nginx/sites-available/nginx.conf && \
 	ln -fs /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/
 
