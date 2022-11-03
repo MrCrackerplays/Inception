@@ -1,10 +1,7 @@
 FROM alpine:3.15
 
 RUN apk update && \
-	apk add \
-	openrc \
-	nginx \
-	openssl
+	apk add openrc nginx openssl
 
 WORKDIR /tmp/
 

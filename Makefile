@@ -15,7 +15,8 @@ setup: docker-setup
 	touch setup
 
 clean: down
-	rm -f setup docker-setup /etc/apt/keyrings/docker.gpg
+	rm -f setup docker-setup
+	sudo rm -f /etc/apt/keyrings/docker.gpg
 
 push:
 	git push origin master
