@@ -14,7 +14,7 @@ docker-setup:
 setup: docker-setup
 	touch setup
 
-clean:
+clean: down
 	rm -f setup docker-setup /etc/apt/keyrings/docker.gpg
 
 push:
