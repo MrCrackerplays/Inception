@@ -15,7 +15,7 @@ setup: docker-setup
 	touch setup
 
 clean:
-	rm setup docker-setup
+	rm -f setup docker-setup
 
 push:
 	git push origin master
