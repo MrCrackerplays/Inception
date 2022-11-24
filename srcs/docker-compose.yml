@@ -10,7 +10,8 @@ services:
       - inception-network
     # see https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes
     volumes:
-      #I don't quite understand this just yet, will return to it
+      #this links the actual location "/root/data" to the container location "/var/www/"
+      #root because docker compose gets called using sudo
       - ${HOME}/data:/var/www/
     #TODO: figure out if ports is needed
     ports:
