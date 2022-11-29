@@ -12,7 +12,7 @@ services:
     volumes:
       #this links the actual location "/root/data" to the container location "/var/www/"
       #root because docker compose gets called using sudo
-      - ${HOME}/data:/var/www/
+      - ${DATA_FOLDER}:/var/www/
     #TODO: figure out if ports is needed
     ports:
       - "443:443"
