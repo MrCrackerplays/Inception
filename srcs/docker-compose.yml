@@ -8,12 +8,11 @@ services:
     restart: unless-stopped
     networks:
       - inception-network
-    # see https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes
+    #makes the service use a volume when accessing files at the /var/www/ path
+    #so that any files in there are persistent between sessions
     volumes:
-      #this links the actual location "/root/data" to the container location "/var/www/"
-      #root because docker compose gets called using sudo
-      - ${DATA_FOLDER}:/var/www/
-    #TODO: figure out if ports is needed
+      - wp-volume:/var/www/
+    #host_port:port_within_container
     ports:
       - "443:443"
 
@@ -21,6 +20,12 @@ services:
 networks:
   inception-network:
     name: inception-network
+
+#the volumes shown in the subject diagram
+volumes:
+  wp-volume:
+  db-volume:
+
 
 #   frontend:
 #     image: awesome/webapp
