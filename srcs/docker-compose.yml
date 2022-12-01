@@ -1,5 +1,7 @@
 services:
   nginx:
+    depends_on:
+      - wordpress
     #this is very explicit for understanding, it could also just be build: requirements/nginx
     build:
       context: requirements/nginx
@@ -15,6 +17,34 @@ services:
     #host_port:port_within_container
     ports:
       - "443:443"
+
+  mariadb:
+    build:
+      context: requirements/mariadb
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    networks:
+      - inception-network
+    volumes:
+      - db-volume:/var/lib/mysql
+    #commented out cause this should get automatically loaded from the .env file but testing might prove me wrong
+    # environment:
+    #   MYSQL_ROOT_PASSWORD: rootpress
+    #   MYSQL_DATABASE: wordpress
+    #   MYSQL_USER: wordpress
+    #   MYSQL_PASSWORD: wordpress
+
+  wordpress:
+    depends_on:
+      - mariadb
+    build:
+      context: requirements/wordpress
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    networks:
+      - inception-network
+    volumes:
+      - wp-volume:/var/www/
 
 #the network shown in the subject diagram
 networks:
