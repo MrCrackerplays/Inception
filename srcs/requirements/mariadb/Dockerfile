@@ -5,7 +5,7 @@ RUN apk update && \
 
 WORKDIR /tmp/mariadb/
 
-COPY conf/ ${WORKDIR}
+# COPY conf/ ${WORKDIR}
 
 #set up the database using RUN mariadb -u root and redirecting a file's contents into it
 

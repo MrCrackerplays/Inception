@@ -7,7 +7,7 @@ RUN apk update
 
 WORKDIR /tmp/wordpress/
 
-COPY conf/ ${WORKDIR}
+# COPY conf/ ${WORKDIR}
 
 #??
 
