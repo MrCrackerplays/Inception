@@ -79,4 +79,15 @@ networks:
 #the volumes shown in the subject diagram
 volumes:
   wp-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/pdruart/data
+
   db-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/pdruart/data
