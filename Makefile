@@ -1,4 +1,3 @@
-
 all: down up
 
 up: setup
