@@ -1,9 +1,7 @@
 FROM alpine:3.17
 
-RUN apk update
-#??? can't find something like apk add wordpress
-	#&& \
-	# apk add mariadb mariadb-client
+RUN apk update && \
+	apk add php php-fpm php-mysqli
 
 WORKDIR /tmp/wordpress/
 
