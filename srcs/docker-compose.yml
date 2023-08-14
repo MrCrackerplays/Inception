@@ -17,6 +17,7 @@ services:
     #host_port:port_within_container
     ports:
       - "443:443"
+    init: true
 
   mariadb:
     build:
@@ -27,6 +28,7 @@ services:
       - inception-network
     volumes:
       - db-volume:/var/lib/mysql
+    init: true
     #commented out cause this should get automatically loaded from the .env file but testing might prove me wrong
     # environment:
     #   MYSQL_ROOT_PASSWORD: rootpress
@@ -45,6 +47,7 @@ services:
       - inception-network
     volumes:
       - wp-volume:/var/www/
+    init: true
 
 #the network shown in the subject diagram
 networks:
