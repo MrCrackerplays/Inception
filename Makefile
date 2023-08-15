@@ -3,7 +3,7 @@ HAS_HOSTS := $(shell grep -c "pdruart.42.fr" /etc/hosts)
 all: down up
 
 up: setup
-	sudo docker compose -f srcs/docker-compose.yml up --build -d
+	sudo docker compose -f srcs/docker-compose.yml up --build -d --remove-orphans --force-recreate
 
 down: setup
 	sudo docker compose -f srcs/docker-compose.yml down
