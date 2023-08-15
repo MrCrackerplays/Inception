@@ -3,7 +3,7 @@ FROM alpine:3.17
 RUN apk update && \
 	apk add php php-fpm php-mysqli
 
-WORKDIR /tmp/wordpress/
+WORKDIR /var/www/html/
 
 # COPY conf/ ${WORKDIR}
 
