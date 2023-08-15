@@ -12,6 +12,7 @@ docker-setup:
 
 setup: docker-setup
 	echo "127.0.0.1 pdruart.42.fr" >> /etc/hosts
+	mkdir ${HOME}/data
 	touch setup
 
 clean: down
