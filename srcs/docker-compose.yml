@@ -83,11 +83,11 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/pdruart/data
+      device: /home/patrick/data
 
   db-volume:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/pdruart/data
+      device: /home/patrick/data
