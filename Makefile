@@ -1,3 +1,5 @@
+HAS_HOSTS := $(shell grep -c "pdruart.42.fr" /etc/hosts)
+
 all: down up
 
 up: setup
@@ -11,7 +13,9 @@ docker-setup:
 	touch docker-setup
 
 setup: docker-setup
-	sudo echo "127.0.0.1 pdruart.42.fr" >> /etc/hosts
+ifeq ($(HAS_HOSTS),)
+	sudo sh -c 'sudo echo "127.0.0.1 pdruart.42.fr" >> /etc/hosts'
+endif
 	mkdir /home/patrick/data
 	touch setup
 
