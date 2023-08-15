@@ -44,7 +44,7 @@ services:
 
     init: true
     #commented out cause this should get automatically loaded from the .env file but testing might prove me wrong
-    # environment:
+    # environment: #just for clarification, this isn't actual credentials, just examples
     #   MYSQL_ROOT_PASSWORD: rootpress
     #   MYSQL_DATABASE: wordpress
     #   MYSQL_USER: wordpress
