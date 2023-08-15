@@ -3,11 +3,9 @@ FROM alpine:3.17
 RUN apk update && \
 	apk add openrc nginx openssl
 
-ARG wrkdir=/tmp/
+WORKDIR /tmp/
 
-WORKDIR ${wrkdir}
-
-COPY conf/ ${wrkdir}
+COPY conf/ /tmp/
 
 RUN mkdir -p /etc/nginx/ssl/ \
 	&& openssl req -newkey rsa:4096 -x509 -sha512 -days 365 -nodes \
@@ -20,6 +18,6 @@ RUN mv -f nginx.conf /etc/nginx/http.d/nginx.conf
 
 EXPOSE 443
 
-RUN chmod -R 777 $(wrkdir)
+RUN chmod -R 777 /tmp/
 
 CMD ["nginx", "-g", "daemon off;"]
