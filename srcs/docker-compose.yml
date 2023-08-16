@@ -94,7 +94,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/patrick/data/
+      device: /home/patrick/data/wordpress/
 
   db-volume:
     driver: local

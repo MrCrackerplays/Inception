@@ -17,3 +17,4 @@ else
 	sed -i "s/localhost/$DOMAIN_NAME/g" wp-config.php
 fi
 
+exec "$@"

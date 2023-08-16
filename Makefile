@@ -17,6 +17,7 @@ ifeq ($(HAS_HOSTS),)
 	sudo sh -c 'sudo echo "127.0.0.1 pdruart.42.fr" >> /etc/hosts'
 endif
 	sudo mkdir -p /home/patrick/data/mariadb
+	sudo mkdir -p /home/patrick/data/wordpress
 	touch setup
 
 clean: down
