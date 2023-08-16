@@ -16,7 +16,7 @@ setup: docker-setup
 ifeq ($(HAS_HOSTS),)
 	sudo sh -c 'sudo echo "127.0.0.1 pdruart.42.fr" >> /etc/hosts'
 endif
-	mkdir -p /home/patrick/data
+	mkdir -p /home/patrick/data/mariadb
 	touch setup
 
 clean: down
