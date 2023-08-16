@@ -85,7 +85,6 @@ services:
 networks:
   inception-network:
     name: inception-network
-    type: bridge #this is already the default implied value but I'm being explicit
 
 
 #the volumes shown in the subject diagram
