@@ -2,6 +2,9 @@ version: "3"
 
 services:
   nginx:
+    #for the purpose of more easily executing a shell in the container once it's up
+    container_name: nginx
+
     #it will only start after wordpress is up
     depends_on:
       - wordpress
@@ -31,6 +34,7 @@ services:
 
 
   mariadb:
+    container_name: mariadb
 
     build:
       context: requirements/mariadb
@@ -55,6 +59,8 @@ services:
 
 
   wordpress:
+    container_name: wordpress
+
     depends_on:
       - mariadb
 
