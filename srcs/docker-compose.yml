@@ -94,11 +94,11 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/patrick/data/wordpress/
+      device: /home/pdruart/data/wordpress/
 
   db-volume:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/patrick/data/mariadb/
+      device: /home/pdruart/data/mariadb/
