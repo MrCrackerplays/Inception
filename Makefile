@@ -23,8 +23,12 @@ endif
 clean: down
 	rm -f setup docker-setup
 
+fclean: clean
+	sudo docker volume rm srcs_db-volume
+	sudo docker volume rm srcs_wp-volume
+
 push:
 	git push origin master
 	git push github master:main
 
-.PHONY: all up down push clean
+.PHONY: all up down push clean fclean
