@@ -1,4 +1,3 @@
-HAS_HOSTS := $(shell grep -c "pdruart.42.fr" /etc/hosts)
 
 all: down up
 
