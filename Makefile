@@ -13,9 +13,7 @@ docker-setup:
 	touch docker-setup
 
 setup: docker-setup
-ifeq ($(HAS_HOSTS),)
-	sudo sh -c 'sudo echo "127.0.0.1 pdruart.42.fr" >> /etc/hosts'
-endif
+	$(if $(shell grep "pdruart.42.fr" /etc/hosts),echo "already in hosts",sudo sh -c 'sudo echo "127.0.0.1 pdruart.42.fr" >> /etc/hosts')
 	sudo mkdir -p /home/pdruart/data/mariadb
 	sudo mkdir -p /home/pdruart/data/wordpress
 	touch setup
