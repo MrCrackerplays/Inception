@@ -6,7 +6,7 @@ RUN apk update && apk upgrade && \
 WORKDIR /var/www/html/
 
 RUN rm -f /etc/php81/php-fpm.d/www.conf
-COPY conf/www.conf /etc/php81/phpfpm.d/www.conf
+COPY conf/www.conf /etc/php81/php-fpm.d/www.conf
 
 #82 seems to just be required for www-data for php-fpm? if I understand it correctly
 RUN adduser -u 82 -D -S -G www-data www-data
