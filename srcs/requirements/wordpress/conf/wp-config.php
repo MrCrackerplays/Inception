@@ -16,6 +16,8 @@ define('NONCE_SALT',			'I)ojmuZO0M-JL[YR=M-~gG-+Fq+%ZIaw;eWx55a+OYts0CK+9(-v*mu&
 
 define("CONCATENATE_SCRIPTS",	false);
 
+$table_prefix =					getenv("WORDPRESS_TABLE_PREFIX");
+
 define("WP_DEBUG", true);
 if (!defined("ABSPATH"))
 	define("ABSPATH", __DIR__ . "/");
