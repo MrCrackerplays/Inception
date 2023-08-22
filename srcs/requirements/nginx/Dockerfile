@@ -1,6 +1,6 @@
 FROM alpine:3.17
 
-RUN apk update && \
+RUN apk update && apk upgrade && \
 	apk add openrc nginx openssl
 
 COPY conf/nginx.conf /etc/nginx/http.d/nginx.conf
@@ -11,6 +11,8 @@ RUN mkdir -p /etc/nginx/ssl/ \
 	-keyout /etc/nginx/ssl/privatekey.pem \
 	-subj "/C=NL/ST=Noord-Holland/L=Amsterdam/O=Codam/CN=pdruart.42.fr" \
 	&& chmod -R 770 /etc/nginx/ssl/
+
+RUN rc-update add nginx default
 
 EXPOSE 443
 
