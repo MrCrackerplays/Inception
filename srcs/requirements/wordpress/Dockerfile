@@ -1,9 +1,19 @@
 FROM alpine:3.17
 
-RUN apk update && \
+RUN apk update && apk upgrade && \
 	apk add php php-fpm php-mysqli
 
 WORKDIR /var/www/html/
+
+RUN rm -f /etc/php81/php-fpm.d/www.conf
+COPY conf/www.conf /etc/php81/phpfpm.d/www.conf
+
+#82 seems to just be required for www-data for php-fpm? if I understand it correctly
+RUN adduser -u 82 -D -S -G www-data www-data
+RUN chmod 777 -R /var/www/html
+RUN chown -R www-data:www-data /var/www/html
+
+COPY conf/wp-config.php ./
 
 #copy the sh script into the container and execute it
 COPY tools/wordpress_stuff.sh /usr/local/bin/
