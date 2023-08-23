@@ -26,7 +26,8 @@ fclean: clean
 	sudo rm -rf /home/pdruart/data/mariadb
 	sudo rm -rf /home/pdruart/data/wordpress
 
-re: fclean up
+re: fclean
+	make
 
 push:
 	git push origin master
