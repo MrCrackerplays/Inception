@@ -23,9 +23,13 @@ clean: down
 fclean: clean
 	sudo docker volume rm srcs_db-volume
 	sudo docker volume rm srcs_wp-volume
+	sudo rm -rf /home/pdruart/data/mariadb
+	sudo rm -rf /home/pdruart/data/wordpress
+
+re: fclean all
 
 push:
 	git push origin master
 	git push github master:main
 
-.PHONY: all up down push clean fclean
+.PHONY: all up down push clean fclean re
