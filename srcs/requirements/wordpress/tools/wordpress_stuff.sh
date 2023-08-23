@@ -20,4 +20,31 @@ else
 	sed -i "s/localhost/$DOMAIN_NAME/g" wp-config.php
 fi
 
+if [ -f /usr/local/bin/wp-cli ]; then
+	echo "wp-cli already installed"
+else
+	echo installing wp-cli
+	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+	chmod +x wp-cli.phar
+	mv wp-cli.phar /usr/local/bin/wp-cli
+fi
+
+# adding the admin user
+if [ -f ./admin-created ]; then
+	echo "admin user already created"
+else
+	echo creating admin user
+	wp-cli user create ${ADMIN_NAME} ${ADMIN_EMAIL} --role=administrator --user_pass=${ADMIN_PASSWORD}
+	touch admin-created
+fi
+
+# adding the regular user
+if [ -f ./user-created ]; then
+	echo "user already created"
+else
+	echo creating regular user
+	wp-cli user create ${USER_NAME} ${USER_EMAIL} --role=author --user_pass=${USER_PASSWORD}
+	touch user-created
+fi
+
 exec "$@"
