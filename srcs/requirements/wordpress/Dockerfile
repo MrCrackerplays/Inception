@@ -1,7 +1,7 @@
 FROM alpine:3.17
 
 RUN apk update && apk upgrade && \
-	apk add php php-fpm php-mysqli curl
+	apk add php php-fpm php-mysqli php-phar curl
 
 WORKDIR /var/www/html/
 
