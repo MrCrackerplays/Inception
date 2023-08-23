@@ -14,10 +14,10 @@ if [ -f ./wp-config.php ]; then
 	echo "wordpress already installed"
 else
 	echo installing wordpress
-	wp-cli core download --allow-root
+	wp-cli core download --allow-root --path="/var/www/html"
 	rm -rf wp-config.php
 	cp /usr/local/bin/wp-config.php .
-	wp-cli core install --allow-root --url=${DOMAIN_NAME} --title="pdruart's magic palace" --admin_user=${ADMIN_NAME} --admin_password=${ADMIN_PASSWORD} --admin_email=${ADMIN_EMAIL} --skip-email
+	wp-cli core install --allow-root --path="/var/www/html" --url=${DOMAIN_NAME} --title="pdruart's magic palace" --admin_user=${ADMIN_NAME} --admin_password=${ADMIN_PASSWORD} --admin_email=${ADMIN_EMAIL} --skip-email
 	# regular user
 	wp-cli user create --allow-root ${USER_NAME} ${USER_EMAIL} --role=author --user_pass=${USER_PASSWORD}
 fi
