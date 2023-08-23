@@ -2,7 +2,7 @@
 define("DB_NAME",				getenv("WORDPRESS_DB_NAME"));
 define("DB_USER",				getenv("WORDPRESS_DB_USER"));
 define("DB_PASSWORD",			getenv("WORDPRESS_DB_PASSWORD"));
-define("DB_HOST",				getenv("WORDPRESS_DB_HOST") . ":3306");
+define("DB_HOST",				getenv("WORDPRESS_DB_HOST"));
 
 //see https://api.wordpress.org/secret-key/1.1/salt/ for easy generation
 define('AUTH_KEY',				'f-<Vu9<h$xbOx*!C +G@?R|Uim2(|2nk=RFqtXe9}GlO4O-+7s+o+$BGUS!P1EK?');
