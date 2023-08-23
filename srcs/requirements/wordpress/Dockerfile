@@ -13,7 +13,7 @@ RUN adduser -u 82 -D -S -G www-data www-data
 RUN chmod 777 -R /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 
-COPY conf/wp-config.php wp-config.php
+COPY conf/wp-config.php /usr/local/bin/wp-config.php
 
 #copy the sh script into the container and execute it
 COPY tools/wordpress_stuff.sh /usr/local/bin/
