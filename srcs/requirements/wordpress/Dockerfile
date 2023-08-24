@@ -3,6 +3,12 @@ FROM alpine:3.17
 RUN apk update && apk upgrade && \
 	apk add php php-fpm php-mysqli php-phar curl
 
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+	chmod +x wp-cli.phar && \
+	mv wp-cli.phar /usr/local/bin/wp-cli
+
+RUN mkdir -p /run/php
+
 WORKDIR /var/www/html/
 
 RUN rm -f /etc/php81/php-fpm.d/www.conf
