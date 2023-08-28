@@ -1,7 +1,7 @@
 FROM alpine:3.17
 
 RUN apk update && apk upgrade && \
-	apk add mariadb mariadb-client mariadb-common mariadb-server-utils
+	apk add openrc mariadb mariadb-client mariadb-common mariadb-server-utils
 
 EXPOSE 3306
 
