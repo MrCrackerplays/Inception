@@ -10,7 +10,7 @@ else
 	# cp /usr/local/bin/wp-config.php .
 	wp db create --allow-root
 	wp config create --dbname=$MYSQL_DATABASE --dbuser=$MYSQL_USER --dbpass=$MYSQL_PASSWORD --dbhost=$MYSQL_HOSTNAME --allow-root
-	wp core install --allow-root --path="/var/www/html" --url=${DOMAIN_NAME} --title="pdruart's magic palace" --admin_user=${ADMIN_NAME} --admin_password=${ADMIN_PASSWORD} --admin_email=${ADMIN_EMAIL}
+	wp core install --allow-root --path="/var/www/html" --url=${DOMAIN_NAME} --title="the magic palace of pdruart" --admin_user=${ADMIN_NAME} --admin_password=${ADMIN_PASSWORD} --admin_email=${ADMIN_EMAIL}
 	# regular user
 	wp user create ${USER_NAME} ${USER_EMAIL} --role=editor --user_pass=${USER_PASSWORD} --allow-root
 	#permissions
