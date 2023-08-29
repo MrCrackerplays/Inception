@@ -42,6 +42,10 @@ services:
 
     restart: unless-stopped
 
+    #please for the lof of god let this make redirection work with mysql
+    tty: true
+    stdin_open: true
+
     networks:
       - inception-network
 
@@ -56,6 +60,9 @@ services:
     #locally define environment variables
     environment:
       - MYSQL_DATABASE=wordpress
+
+    expose:
+      - "3306"
 
 
   wordpress:

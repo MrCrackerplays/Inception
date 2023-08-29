@@ -1,7 +1,7 @@
 FROM alpine:3.17
 
 RUN apk update && apk upgrade && \
-	apk add openrc php php-fpm php-mysqli php-phar curl
+	apk add openrc php php-fpm php-mysqli php-phar curl mysql mysql-client php-iconv
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
 	chmod +x wp-cli.phar && \
