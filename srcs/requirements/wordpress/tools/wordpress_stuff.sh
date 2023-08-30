@@ -12,16 +12,6 @@ else
         mv wordpress/* .
         rm -rf wordpress
         touch download-complete
-
-#       rm -rf wp-config.php
-#       cp /usr/local/bin/wp-config.php .
-#       # this should never actually replace anything as the premade wp-config.php is filled in
-#       # but just in case moving latest's contents ever overwrites that file I'll leave this here
-#       # s/STUFF/NEWSTUFF/g replace all occurences of STUFF with NEWSTUFF
-#       sed -i "s/username_here/$WORDPRESS_DB_USER/g" wp-config.php
-#       sed -i "s/password_here/$WORDPRESS_DB_PASSWORD/g" wp-config.php
-#       sed -i "s/database_name_here/$WORDPRESS_DB_NAME/g" wp-config.php
-#       sed -i "s/localhost/$DOMAIN_NAME/g" wp-config.php
 fi
 
 
@@ -30,12 +20,9 @@ fi
         echo "wordpress already installed"
  else
         echo installing wordpress
-#       wp core download --allow-root --path="/var/www/html"
-#       rm -rf wp-config.php
-#       cp /usr/local/bin/wp-config.php .
         echo "pre config create"
         wp config create --dbname=$WORDPRESS_DB_NAME --dbuser=$WORDPRESS_DB_USER --dbpass=$WORDPRESS_DB_PASSWORD --dbhost=$WORDPRESS_DB_HOST --allow-root --skip-check
-        echo "post ${WORDPRESS_DB_NAME} ${WORDPRESS_DB_USER} ${WORDPRESS_DB_PASSWORD} ${WORDPRESS_DB_HOST}"
+        echo "post"
         sleep 1
         echo "pre db create"
         wp db create --allow-root
